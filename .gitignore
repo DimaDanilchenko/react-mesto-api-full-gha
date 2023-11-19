@@ -12,7 +12,8 @@ npm-debug.log*
 .vscode
 
 # dependencies
-~/node_modules
+/frontend/node_modules
+/backend/node_modules
 /.pnp
 .pnp.js
 
