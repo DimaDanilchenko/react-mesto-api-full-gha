@@ -1,0 +1,10 @@
+.delete-photo-popup__image{
+  width: 32px;
+  height: 32px;
+}
+@media screen and (max-width: 425px) {
+  .delete-photo-popup__image {
+    width: 20px;
+    height: 20px;
+  }
+}

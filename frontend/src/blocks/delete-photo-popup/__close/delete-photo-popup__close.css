@@ -1,0 +1,22 @@
+.delete-photo-popup__close{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: -40px;
+  right: -40px;
+  object-fit: cover;
+  object-position: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  cursor: pointer;
+}
+@media screen and (max-width: 425px) {
+  .delete-photo-popup__close {
+    right: 0;
+    top: -36px;
+    width: 20px;
+    height: 20px;
+  }
+}

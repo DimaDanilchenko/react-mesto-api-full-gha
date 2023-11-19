@@ -1,0 +1,23 @@
+.profile__redaction{
+  border: 1px solid #FFFFFF;
+  width: 24px;
+  height: 24px;
+  margin-left: 22px;
+  margin-top: 18px;
+  background-color: black;
+  padding: 0;
+}
+.profile__redaction:hover{
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+  .profile__redaction{
+    margin: 0;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    align-self: center;
+  }
+}

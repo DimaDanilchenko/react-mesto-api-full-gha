@@ -1,0 +1,13 @@
+.registration-popup__text {
+  margin: 0;
+  margin-bottom: 60px;
+  margin-top: 32px;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  width: calc(100% - 26*2px);
+}

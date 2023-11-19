@@ -1,0 +1,32 @@
+.add-photo-popup__input{
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin: 0 auto;
+  padding: 0;
+  width: 358px;
+  min-height: 27px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.add-photo-popup__input:first-child{
+  margin-top: 44px;
+}
+.add-photo-popup__input:nth-child(3){
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 470px) {
+  .add-photo-popup__input {
+    width: 238px;
+  }
+  .add-photo-popup__input:first-child{
+    margin-top: 72px;
+  }
+  .add-photo-popup__input:nth-child(2){
+    margin-top: 30px;
+  }
+}

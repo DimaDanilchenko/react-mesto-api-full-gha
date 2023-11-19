@@ -1,0 +1,10 @@
+.photo-popup__photo{
+  max-width: 75vw;
+  max-height: 75vh;
+}
+@media screen and (max-width: 425px) {
+  .photo-popup__photo {
+    max-width: 240px;
+    max-height: 299px;
+  }
+}

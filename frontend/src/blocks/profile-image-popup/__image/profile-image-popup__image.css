@@ -1,0 +1,10 @@
+.profile-image-popup__image{
+  width: 32px;
+  height: 32px;
+}
+@media screen and (max-width: 425px) {
+  .profile-image-popup__image {
+    width: 20px;
+    height: 20px;
+  }
+}

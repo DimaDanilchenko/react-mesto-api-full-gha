@@ -1,0 +1,13 @@
+.profile__account{
+  display: flex;
+  flex-direction: column;
+  margin-left: 31px;
+  margin-top: 20px;
+}
+@media screen and (max-width: 425px) {
+  .profile__account {
+    margin: 0 auto;
+    margin-top: 26px;
+    width: 282px;
+  }
+}

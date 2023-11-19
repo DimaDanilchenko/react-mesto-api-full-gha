@@ -1,0 +1,21 @@
+.profile-image-popup__container{
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  position: relative;
+  padding-bottom: 37px;
+}
+@media screen and (max-width: 768px) {
+  .profile-image-popup__container {
+    width: calc(100% - 50*2px);
+  }
+}
+@media screen and (max-width: 470px) {
+  .profile-image-popup__container {
+    width: 282px;
+    padding-bottom: 0px;
+  }
+}

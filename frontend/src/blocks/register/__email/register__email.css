@@ -1,0 +1,15 @@
+.register__email{
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+  margin: 0 auto;
+  padding: 0;
+  width: 358px;
+  min-height: 27px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CCC;
+  color: #CCC;
+}

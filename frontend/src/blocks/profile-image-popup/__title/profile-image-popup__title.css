@@ -1,0 +1,20 @@
+.profile-image-popup__title{
+  margin: 0;
+  margin-top: 34px;
+  margin-left: 36px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: black;
+}
+@media screen and (max-width: 470px) {
+  .profile-image-popup__title {
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 238px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
