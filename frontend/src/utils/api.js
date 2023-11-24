@@ -85,9 +85,8 @@ class Api {
   }
 }
 const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-69',
+  baseUrl: 'https://api.dimadanilchenko.nomoredomainsmonster.ru',
   headers: {
-    authorization: 'b0a021b8-85d2-4df0-a58b-761352eca6a6',
     'Content-Type': 'application/json'
   }
 });
