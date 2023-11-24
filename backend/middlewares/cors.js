@@ -1,8 +1,8 @@
 /* eslint-disable spaced-comment */
 /* eslint-disable linebreak-style */
 const allowedCors = [
-  'https://sightsofrussia.nomoredomains.monster',
-  'http://sightsofrussia.nomoredomains.monster',
+  'https://dimadanilchenko.nomoredomainsmonster.ru',
+  'http://dimadanilchenko.nomoredomainsmonster.ru',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
