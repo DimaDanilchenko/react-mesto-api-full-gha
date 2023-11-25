@@ -1,4 +1,5 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+// export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.dimadanilchenko.nomoredomainsmonster.ru";
 
 function handleRes(res) {
   if (res.ok) {
