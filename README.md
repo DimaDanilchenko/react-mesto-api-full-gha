@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/DimaDanilchenko/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
 IP-адрес 158.160.35.91
 
-Frontend https://...
+Frontend https://dimadanilchenko.nomoredomainsmonster.ru
 
-Backend https://...
+Backend https://api.dimadanilchenko.nomoredomainsmonster.ru
