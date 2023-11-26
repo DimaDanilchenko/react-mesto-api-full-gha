@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.35.91
+IP-адрес 158.160.48.44
 
 Frontend https://dima-dan.nomoredomainsmonster.ru
 
