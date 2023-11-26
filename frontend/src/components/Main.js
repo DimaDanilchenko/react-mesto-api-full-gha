@@ -8,7 +8,6 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Main({cards, onEditAvatar, onEditProfile, onAddPlace, onCardClick, onCardDelete, onCardLike}) {
   const currentUser = React.useContext(CurrentUserContext);
 
-
   const cardElements = cards.map((card)=>(
     <Card 
       card = {card}

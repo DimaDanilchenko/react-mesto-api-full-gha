@@ -1,9 +1,12 @@
 class Api {
   constructor({ baseUrl, headers }) {
-    this._headers = headers
-    this._baseUrl = baseUrl
+    this._headers = headers;
+    this._baseUrl = baseUrl;
   }
 
+  getToken(jwt) {
+    this._headers.authorization = `Bearer ${jwt}`;
+  }
   _handleResponse(res) {
     if (res.ok) {
       return res.json();
@@ -15,28 +18,37 @@ class Api {
   }
 
   // Загрузка информации о пользователе с сервера
-  getUserProfile() {
+  getUserProfile(token) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: this._headers
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`
+      }
     })
       .then(this._handleResponse)
   }
 
 
   // Загрузка карточек с сервера
-  getInitialCards() {
+  getInitialCards(token) {
     return fetch(`${this._baseUrl}/cards`, {
-      method: 'GET',
-      headers: this._headers
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
     })
       .then(this._handleResponse)
   }
   // Редактирование профиля
-  setUserProfile(name, about) {
+  setUserProfile(name, about, jwt) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${jwt}`
+      },
       body: JSON.stringify({
         name,
         about
@@ -45,10 +57,13 @@ class Api {
       .then(this._handleResponse)
   }
   //Изменение аватарки
-  setUserAvatar(avatar) {
+  setUserAvatar(avatar, token) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`
+      },
       body: JSON.stringify({
         avatar
       })
@@ -56,10 +71,13 @@ class Api {
       .then(this._handleResponse)
   }
   //Добавление карточки
-  addNewCard(name, link) {
+  addNewCard(name, link, token) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`
+      },
       body: JSON.stringify({
         name,
         link
@@ -68,24 +86,31 @@ class Api {
       .then(this._handleResponse)
   }
   // Удаление карточки
-  removeCard(id) {
+  removeCard(id, token) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
-      headers: this._headers
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`
+      }
     })
       .then(this._handleResponse)
   }
   // Постановка, снятие лайка
-  changeLikeCardStatus(id, isLiked) {
+  changeLikeCardStatus(id, isLiked, token) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       method: `${isLiked ? 'PUT' : 'DELETE'}`,
-      headers: this._headers
+      headers: {
+        ...this._headers,
+        'Authorization': `Bearer ${token}`
+      }
     })
       .then(this._handleResponse)
   }
 }
 const api = new Api({
-  baseUrl: 'https://api.dimadanilchenko.nomoredomainsmonster.ru',
+  //baseUrl: 'http://localhost:3000',
+  baseUrl: 'https://api.dima-dan.nomoredomainsmonster.ru',
   headers: {
     'Content-Type': 'application/json'
   }

@@ -11,6 +11,6 @@
 
 IP-адрес 158.160.35.91
 
-Frontend https://dimadanilchenko.nomoredomainsmonster.ru
+Frontend https://dima-dan.nomoredomainsmonster.ru
 
-Backend https://api.dimadanilchenko.nomoredomainsmonster.ru
+Backend https://api.dima-dan.nomoredomainsmonster.ru

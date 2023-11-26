@@ -15,9 +15,6 @@ import Register from './Register';
 import Login from './Login';
 import InfoTooltip from './InfoTooltip';
 
-
-
-
 function App() {
   const navigate = useNavigate();
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
@@ -31,16 +28,17 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = useState(false);
   const [status, setStatus] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(null);
+  const jwt = localStorage.getItem("jwt");
 
 
   useEffect(() => {
-    api.getInitialCards()
+    api.getInitialCards(jwt)
       .then((res) => {
         setCards(res);
       })
       .catch(console.error)
-    api.getUserProfile()
+    api.getUserProfile(jwt)
       .then((res) => {
         setCurrentUser(res);
       })
@@ -54,13 +52,13 @@ function App() {
   function tokenCheck() {
     if (localStorage.getItem("jwt")) {
       const jwt = localStorage.getItem("jwt");
-      console.log(jwt);
       if (jwt) {
         auth
           .tokenCheck(jwt)
           .then((res) => {
             if (res) {
-              setEmail(res.data.email);
+              setEmail(res.email);
+              setCurrentUser(res);
               setLoggedIn(true);
               navigate("/");
             }
@@ -73,6 +71,7 @@ function App() {
       }
     }
   }
+
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -92,7 +91,7 @@ function App() {
   }
 
   function handleAddPlaceSubmit({ name, link }) {
-    api.addNewCard(name, link)
+    api.addNewCard(name, link, jwt)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         closeAllPopup();
@@ -103,7 +102,7 @@ function App() {
     // Снова проверяем, есть ли уже лайк на этой карточке 
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки 
-    api.changeLikeCardStatus(card._id, !isLiked)
+    api.changeLikeCardStatus(card._id, !isLiked, jwt)
       .then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       })
@@ -111,7 +110,7 @@ function App() {
   }
 
   function handleUpdateUser({ name, about }) {
-    api.setUserProfile(name, about)
+    api.setUserProfile(name, about, jwt)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopup();
@@ -120,7 +119,7 @@ function App() {
   }
 
   function handleUpdateAvatar({ avatar }) {
-    api.setUserAvatar(avatar)
+    api.setUserAvatar(avatar, jwt)
       .then((res) => {
         setCurrentUser(res);
         closeAllPopup();
@@ -129,7 +128,7 @@ function App() {
   }
 
   function handleCardDelete(card) {
-    api.removeCard(card._id)
+    api.removeCard(card._id, jwt)
       .then((res) => {
         setCards((state) => state.filter((item) => item._id !== card._id));
       })
@@ -154,7 +153,7 @@ function App() {
         navigate('/sign-in', { replace: true });
       });
   }
-  function handleRegister(email, password){
+  function handleRegister(email, password) {
     auth.registerUser(email, password)
       .then((res) => {
         if (res) {
@@ -186,7 +185,7 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
-      <Header loggedIn={loggedIn} email={email} onSignOut={handleSignOut} />
+        <Header loggedIn={loggedIn} email={email} onSignOut={handleSignOut} />
         <Routes>
           <Route
             path="/"
@@ -203,7 +202,7 @@ function App() {
             />}
           />
           <Route path="/sign-up" element={
-            <Register onRegister={handleRegister} />} 
+            <Register onRegister={handleRegister} />}
           />
           <Route path="/sign-in" element={
             <Login onLogin={handleLogin} />}
